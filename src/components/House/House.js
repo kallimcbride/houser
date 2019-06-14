@@ -1,17 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class House extends Component {
-    constructor(){
-        super()
-        
-        this.state = {
+export default function House(props) {
 
-        }
-    }
-
-    render(){
         return(
-            <div></div>
+            <div className="House">
+                {props.id} 
+                {props.name}
+                {props.address} 
+                {props.city} 
+                {props.state} 
+                {props.zip} 
+                
+                <button onClick={() => props.deleteHouse(props.id)}>
+                    Delete House
+                </button>
+            </div>
         )
-    }
+    
 }
