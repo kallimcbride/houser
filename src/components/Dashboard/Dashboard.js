@@ -37,13 +37,13 @@ export default class Dashboard extends Component {
         return this.state.homes.map(home => {
             return (
                 <House 
-                id={home.id} 
-                name={home.name}
-                address={home.address} 
-                city={home.city} 
-                state={home.state} 
-                zip={home.zip} 
-                deleteHouse={this.deleteHouse}
+                id = {home.id} 
+                name = {home.name}
+                address = {home.address} 
+                city = {home.city} 
+                state = {home.state} 
+                zip = {home.zip} 
+                deleteHouse = {this.deleteHouse}
                 />
             )
         })
@@ -52,11 +52,11 @@ export default class Dashboard extends Component {
     render(){
         return(
             <div>Dashboard
-                <div>{this.renderHouses}</div>
-                <br/>
+            
                 <Link to ='/wizard'><button className="AddProperty">
                     Add New Property
                 </button></Link>
+                <House/>
                 
             </div>
             

@@ -14,7 +14,7 @@ massive(CONNECTION_STRING).then(db => {
     console.log('WE LIT');
 })
 
-// app.post('/api/houses', homeCtrl.add)
+app.post('/api/houses', homeCtrl.add)
 // app.put('/api/houses/:id', homeCtrl.updateHome)
 app.get('/api/houses/:id', homeCtrl.getHome)
 app.get('/api/houses', homeCtrl.getHomes)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 
 export default class Wizard extends Component {
     constructor(){
@@ -13,6 +14,36 @@ export default class Wizard extends Component {
             zip: 0
         }
     }
+
+    componentDidMount(){
+        if(this.props.match.params.id){
+            axios.get(`/api/houses/${this.props.match.params.id}`).then(res => {
+                this.setState({
+                    name: res.data.name,
+                    address: res.data.address,
+                    city: res.data.city,
+                    state: res.data.state,
+                    zip: res.data.zip
+                })
+                console.log(res)
+            })
+        }
+    }
+
+    addClick = () => {
+        axios.post('/api/houses', {
+            name: this.state.name,
+            address: this.state.address,
+            city: this.state.city,
+            state: this.state.state,
+            zip: this.state.zip
+        }).then(res => {
+            console.log('House Added')
+        }).catch(err => {
+            console.log('Problem adding home error:', err)
+        })
+    }
+
     render(){
         return(
             <div>Wizard
@@ -48,6 +79,8 @@ export default class Wizard extends Component {
                 type="number"
                 value={this.state.zip}
                 onChange={e => this.setState({zip: e.target.value})}></input>
+
+                <button onClick={this.state.addClick}>Add Home</button>
             </div>
         )
     }
