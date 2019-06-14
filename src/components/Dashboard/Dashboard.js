@@ -37,7 +37,7 @@ export default class Dashboard extends Component {
         return this.state.homes.map(home => {
             return (
                 <House 
-                id = {home.id} 
+                key={home.id}
                 name = {home.name}
                 address = {home.address} 
                 city = {home.city} 
@@ -51,12 +51,14 @@ export default class Dashboard extends Component {
 
     render(){
         return(
-            <div>Dashboard
+            <div>
+
+            {this.renderHouses()}
             
                 <Link to ='/wizard'><button className="AddProperty">
                     Add New Property
                 </button></Link>
-                <House/>
+                
                 
             </div>
             

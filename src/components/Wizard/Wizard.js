@@ -30,6 +30,7 @@ export default class Wizard extends Component {
         }
     }
 
+
     addClick = () => {
         axios.post('/api/houses', {
             name: this.state.name,
@@ -41,7 +42,7 @@ export default class Wizard extends Component {
             console.log('House Added')
         }).catch(err => {
             console.log('Problem adding home error:', err)
-        })
+        }) 
     }
 
     render(){
